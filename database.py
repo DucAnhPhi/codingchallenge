@@ -1,5 +1,6 @@
 import sqlite3
 from sqlite3 import Error
+import pandas as pd
 
 class Database(object):
     def __init__(self, db_file):
@@ -24,7 +25,4 @@ class Database(object):
         self.conn.commit()
     
     def show_all(self):
-        c = self.conn.cursor()
-        c.execute('''SELECT * FROM palindromes
-        ''')
-        print(c.fetchall())
+        print(pd.read_sql_query("SELECT * FROM palindromes", self.conn))
