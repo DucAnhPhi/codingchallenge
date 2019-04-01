@@ -18,6 +18,10 @@ class TestTransformMethods(unittest.TestCase):
         self.assertEqual(self.t.palindrome(11), 11)
         self.assertEqual(self.t.palindrome(607), 4444)
         self.assertEqual(self.t.palindrome(196), -1)
+    
+    def test_palindrome_w_cycles(self):
+        self.assertEqual(self.t.palindrome_w_cycles(28), (121, 2))
+        self.assertEqual(self.t.palindrome_w_cycles(51), (66, 1))
 
 if __name__ == '__main__':
     unittest.main()

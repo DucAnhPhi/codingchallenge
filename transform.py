@@ -12,6 +12,21 @@ class Transform(object):
 
         return -1
     
+    def palindrome_w_cycles(self, n):
+        if self.is_palindrome(n):
+            return n
+        
+        tempN = n
+        cycles = 0
+
+        while tempN < 1000000000:
+            cycles += 1
+            tempN = tempN + self.reverse(tempN)
+            if self.is_palindrome(tempN):
+                return (tempN, cycles)
+        
+        return (-1, cycles)
+    
     def reverse(self, n):
         rev = 0
         while n > 0:
