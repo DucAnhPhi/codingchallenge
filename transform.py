@@ -14,7 +14,7 @@ class Transform(object):
     
     def palindrome_w_cycles(self, n):
         if self.is_palindrome(n):
-            return n
+            return (n, 0)
         
         tempN = n
         cycles = 0
